@@ -1,10 +1,11 @@
-# Automatically generated on 2020-06-15 UTC from http://localhost:3000/app/5ee7d592f3d3d9000b7b9dd6/settings
+# Automatically generated on 2020-06-16 UTC from https://staging.codemagic.io/app/5ee7d54fd200530001856595/settings
 # Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
 
 workflows:
-  default-workflow:
-    name: Default Workflow
-    max_build_duration: 30
+  mac-mini:
+    name: Mac Mini
+    instance_type: mac_mini
+    max_build_duration: 60
     environment:
       flutter: stable
       xcode: latest
@@ -17,10 +18,10 @@ workflows:
       email:
         recipients:
           - remarkov@gmail.com
-  tests-on-mac-pro:
-    name: Tests on Mac Pro
+  mac-pro:
+    name: Mac Pro
     instance_type: mac_pro
-    max_build_duration: 30
+    max_build_duration: 90
     environment:
       flutter: stable
       xcode: latest
