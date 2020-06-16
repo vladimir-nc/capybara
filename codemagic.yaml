@@ -39,7 +39,8 @@ workflows:
       branch_patterns:
         - pattern: '*'
           include: true
-          source: true    scripts:
+          source: true    
+    scripts:
       - flutter packages pub get
     artifacts:
       - flutter_drive.log
