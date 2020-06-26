@@ -2,6 +2,22 @@
 # Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
 
 workflows:
+  linux-tests:
+    name: Linux tests
+    instance_type: linux
+    max_build_duration: 30
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - flutter packages pub get
+    artifacts:
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - remarkov@gmail.com
   mac-mini:
     name: Mac Mini
     max_build_duration: 30
