@@ -1,6 +1,3 @@
-# Automatically generated on 2020-08-18 UTC from http://localhost:3000/app/5f36582ad668c8009d27f2cd/settings
-# Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
-
 workflows:
   default-workflow:
     name: Default Workflow
@@ -43,6 +40,38 @@ workflows:
   tests-only-mac:
     name: Tests only (Mac)
     max_build_duration: 30
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - flutter packages pub get
+    artifacts:
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - remarkov@gmail.com
+  tests-only-anka:
+    name: Tests only (Anka)
+    max_build_duration: 30
+    instance_type: anka_mac_mini_64_1tb
+    environment:
+      flutter: stable
+      xcode: 11.7
+      cocoapods: default
+    scripts:
+      - flutter packages pub get
+    artifacts:
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - remarkov@gmail.com
+  tests-only-macstadium:
+    name: Tests only (MacStadium)
+    max_build_duration: 30
+    instance_type: macstadium_mac_mini
     environment:
       flutter: stable
       xcode: latest
