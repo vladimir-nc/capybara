@@ -37,8 +37,8 @@ workflows:
       email:
         recipients:
           - remarkov@gmail.com
-  tests-only-mac:
-    name: Tests only (Mac)
+  tests-only:
+    name: Tests only
     max_build_duration: 30
     environment:
       flutter: stable
@@ -52,67 +52,3 @@ workflows:
       email:
         recipients:
           - remarkov@gmail.com
-  tests-only-anka:
-    name: Tests only (Anka)
-    max_build_duration: 30
-    environment:
-      flutter: stable
-      xcode: 11.7
-      cocoapods: default
-    scripts:
-      - flutter packages pub get
-    artifacts:
-      - flutter_drive.log
-    publishing:
-      email:
-        recipients:
-          - remarkov@gmail.com
-  tests-only-macstadium:
-    name: Tests only (MacStadium)
-    max_build_duration: 30
-    instance_type: macstadium_mac_mini
-    environment:
-      flutter: stable
-      xcode: latest
-      cocoapods: default
-    scripts:
-      - flutter packages pub get
-    artifacts:
-      - flutter_drive.log
-    publishing:
-      email:
-        recipients:
-          - remarkov@gmail.com
-  tests-only-linux:
-    name: Tests only (Linux)
-    instance_type: linux
-    max_build_duration: 30
-    environment:
-      flutter: stable
-      xcode: latest
-      cocoapods: default
-    scripts:
-      - flutter packages pub get
-    artifacts:
-      - flutter_drive.log
-    publishing:
-      email:
-        recipients:
-          - remarkov@gmail.com
-  tests-only-bug:
-    name: Tests only (Bad one)
-    max_build_duration: 30
-    instance_type: non-existent
-    environment:
-      flutter: stable
-      xcode: latest
-      cocoapods: default
-    scripts:
-      - flutter packages pub get
-    artifacts:
-      - flutter_drive.log
-    publishing:
-      email:
-        recipients:
-          - remarkov@gmail.com
- 
