@@ -25,12 +25,10 @@ workflows:
       - flutter packages pub get
       - flutter build apk --debug
       - find . -name "Podfile" -execdir pod install \;
-      - flutter build ios --debug --no-codesign
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
-      - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
       - flutter_drive.log
     publishing:
