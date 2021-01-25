@@ -38,6 +38,7 @@ workflows:
   tests-only:
     name: Tests only
     max_build_duration: 10
+    instance_type: linux
     scripts:
       - flutter packages pub get
     artifacts:
