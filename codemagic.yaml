@@ -1,3 +1,12 @@
+definitions:
+  scripts:
+    - &echo_with_substitution
+      name: Echo with substitution using the bash way
+      script: |
+        echo $(whoami)
+        echo $(flutter version)
+
+
 workflows:
   default-workflow:
     name: Default Workflow
@@ -46,3 +55,21 @@ workflows:
       email:
         recipients:
           - remarkov@gmail.com
+          
+  test-bash-linux:
+    name: Tests bash on Linux
+    max_build_duration: 3
+    instance_type: linux
+    scripts:
+      - *echo_with_substitution
+    artifacts:
+      - flutter_drive.log
+          
+  test-bash-macos:
+    name: Tests bash on macOS
+    max_build_duration: 3
+    instance_type: mac_mini
+    scripts:
+      - *echo_with_substitution
+    artifacts:
+      - flutter_drive.log
