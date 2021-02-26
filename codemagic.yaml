@@ -61,8 +61,10 @@ workflows:
     max_build_duration: 10
     instance_type: linux
     scripts:
-      - flutter emulators --launch emulator
-      - adb devices
+      - |
+        flutter emulators --launch emulator
+        adb wait-for-device
+        adb devices
           
   test-bash-linux:
     name: Tests bash on Linux
