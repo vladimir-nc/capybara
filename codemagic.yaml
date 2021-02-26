@@ -54,7 +54,15 @@ workflows:
     publishing:
       email:
         recipients:
-          - remarkov@gmail.com
+          - remarkov@gmail.com          
+
+test-emulator-linux:
+    name: Tests Android emulator under linux
+    max_build_duration: 10
+    instance_type: linux
+    scripts:
+      - flutter emulators --launch emulator
+      - adb devices
           
   test-bash-linux:
     name: Tests bash on Linux
