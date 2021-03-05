@@ -81,6 +81,6 @@ workflows:
     instance_type: mac_mini
     environment:
       xcode: 12.5
-      flutter: stable
+      flutter: 2.0.1
     scripts:
       - flutter --version
