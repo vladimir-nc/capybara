@@ -76,10 +76,11 @@ workflows:
       - flutter_drive.log
           
   test-bash-macos:
-    name: Tests bash on macOS
+    name: Test xcode 12.5 on macOS
     max_build_duration: 3
     instance_type: mac_mini
+    environment:
+      xcode: 12.5
+      flutter: stable
     scripts:
-      - *echo_with_substitution
-    artifacts:
-      - flutter_drive.log
+      - flutter --version
