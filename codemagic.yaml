@@ -69,7 +69,9 @@ workflows:
   test-flutter-stable-linux:
     name: Test flutter stable on Linux
     max_build_duration: 3
-    instance_type: mac_mini
+    instance_type: linux
+    environment:
+      xcode: 12.4
     scripts:
       - flutter --version
 
@@ -77,6 +79,8 @@ workflows:
     name: Test flutter stable on macOS
     max_build_duration: 3
     instance_type: mac_mini
+    environment:
+      xcode: 12.4
     scripts:
       - flutter --version
 
@@ -85,6 +89,7 @@ workflows:
     max_build_duration: 3
     instance_type: linux
     environment:
+      xcode: 12.4
       flutter: 1.22.6
     scripts:
       - flutter --version
@@ -94,6 +99,7 @@ workflows:
     max_build_duration: 3
     instance_type: mac_mini
     environment:
+      xcode: 12.4
       flutter: 1.22.6
     scripts:
       - flutter --version
