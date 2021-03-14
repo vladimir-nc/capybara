@@ -80,7 +80,7 @@ workflows:
     scripts:
       - flutter --version
 
-  test-flutter-1.22.6-macos:
+  test-flutter-1.22.6-linux:
     name: Test flutter 1.22.6 on Linux
     max_build_duration: 3
     instance_type: linux
@@ -89,7 +89,7 @@ workflows:
     scripts:
       - flutter --version
 
-  test-flutter-stable-macos:
+  test-flutter-1.22.6-macos:
     name: Test flutter stable on macOS
     max_build_duration: 3
     instance_type: mac_mini
