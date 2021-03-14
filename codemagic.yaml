@@ -66,18 +66,34 @@ workflows:
         adb wait-for-device
         adb devices
           
-  test-sleep-linux:
-    name: Tests sleep on Linux
-    instance_type: linux
+  test-flutter-stable-linux:
+    name: Test flutter stable on Linux
+    max_build_duration: 3
+    instance_type: mac_mini
     scripts:
-      - sleep 6h
-          
-  test-bash-macos:
-    name: Test xcode 12.5 on macOS
+      - flutter --version
+
+  test-flutter-stable-macos:
+    name: Test flutter stable on macOS
+    max_build_duration: 3
+    instance_type: mac_mini
+    scripts:
+      - flutter --version
+
+  test-flutter-1.22.6-macos:
+    name: Test flutter 1.22.6 on Linux
+    max_build_duration: 3
+    instance_type: linux
+    environment:
+      flutter: 1.22.6
+    scripts:
+      - flutter --version
+
+  test-flutter-stable-macos:
+    name: Test flutter stable on macOS
     max_build_duration: 3
     instance_type: mac_mini
     environment:
-      xcode: 12.5
-      flutter: 2.0.1
+      flutter: 1.22.6
     scripts:
       - flutter --version
