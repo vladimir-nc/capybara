@@ -75,8 +75,8 @@ workflows:
     scripts:
       - flutter --version
 
-  test-flutter-stable-macos:
-    name: Test flutter stable on macOS
+  test-1min-sleep-macos:
+    name: Test 1 min sleep on macOS
     max_build_duration: 3
     instance_type: mac_mini
     environment:
