@@ -82,6 +82,16 @@ workflows:
     environment:
       xcode: 12.4
     scripts:
+      - sleep 60
+      - flutter --version
+
+  test-flutter-stable-macos:
+    name: Test flutter stable on macOS
+    max_build_duration: 3
+    instance_type: mac_mini
+    environment:
+      xcode: 12.4
+    scripts:
       - flutter --version
 
   test-flutter-1.22.6-linux:
