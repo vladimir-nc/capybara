@@ -86,13 +86,13 @@ workflows:
       - flutter --version
 
   test-1min-sleep-macos:
-    name: Test 1 min sleep on macOS
-    max_build_duration: 3
+    name: Test 10 min sleep on macOS
+    max_build_duration: 30
     instance_type: mac_mini
     environment:
       xcode: 12.4
     scripts:
-      - sleep 60
+      - sleep 600
       - flutter --version
 
   test-flutter-stable-macos:
@@ -115,7 +115,7 @@ workflows:
       - flutter --version
 
   test-flutter-1.22.6-macos:
-    name: Test flutter stable on macOS
+    name: Test flutter 1.22.6 on macOS
     max_build_duration: 3
     instance_type: mac_mini
     environment:
