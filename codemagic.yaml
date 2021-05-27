@@ -61,7 +61,7 @@ workflows:
     max_build_duration: 3
     cache:
       cache_paths:
-        $HOME/.config
+        - $HOME/.config
     instance_type: mac_mini
     environment:
       xcode: 12.5
