@@ -56,6 +56,17 @@ workflows:
         recipients:
           - remarkov@gmail.com          
 
+  NFS goes down:
+    name: All your NFS are belong to us!
+    max_build_duration: 3
+    cache:
+      cache_paths:
+        $HOME/.config
+    instance_type: mac_mini
+    environment:
+      xcode: 12.5
+    scripts:
+      - flutter --version
 
   test-debug-macos:
     name: Test debug build on macOS
