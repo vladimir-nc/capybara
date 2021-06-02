@@ -11,7 +11,7 @@ workflows:
   default-workflow:
     name: Default Workflow
     max_build_duration: 30
-    instance_type: mac_mini
+    instance_type: mac_mini_test
     environment:
       flutter: stable
     scripts:
@@ -39,10 +39,7 @@ workflows:
       - build/**/outputs/**/mapping.txt
       - /tmp/xcodebuild_logs/*.log
       - flutter_drive.log
-    publishing:
-      email:
-        recipients:
-          - remarkov@gmail.com
+
   tests-only:
     name: Tests only
     max_build_duration: 10
@@ -51,10 +48,6 @@ workflows:
       - flutter packages pub get
     artifacts:
       - flutter_drive.log
-    publishing:
-      email:
-        recipients:
-          - remarkov@gmail.com          
 
   NFS goes down:
     name: All your NFS are belong to us!
@@ -110,7 +103,6 @@ workflows:
     name: Test flutter stable on macOS
     max_build_duration: 30
     instance_type: mac_mini
-    project_file: subproject2/deeper-path
     environment:
       xcode: 12.4
     scripts:
