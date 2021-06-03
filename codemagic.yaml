@@ -89,13 +89,13 @@ workflows:
     scripts:
       - flutter --version
 
-  test-1min-sleep-macos:
-    name: Test 2h sleep on macOS
+  sleep-well-macos:
+    name: 2h sleep on macOS
     max_build_duration: 120
     environment:
       xcode: 12.4
     scripts:
-      - sleep 2h
+      - sleep 7200
       - flutter --version
 
   test-flutter-stable-macos:
