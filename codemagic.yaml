@@ -64,7 +64,10 @@ workflows:
   test-debug-macos:
     name: Test debug build on macOS
     max_build_duration: 30
-    instance_type: mac_mini
+    cache:
+      cache_paths:
+        - $HOME/.config
+        - $FCI_BUILD_DIR/.metadata
     environment:
       xcode: 12.4
     scripts:
