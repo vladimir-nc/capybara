@@ -94,6 +94,10 @@ workflows:
     max_build_duration: 120
     environment:
       xcode: 12.4
+    cache:
+      cache_paths:
+        - $HOME/.config
+        - $FCI_BUILD_DIR/.metadata
     scripts:
       - sleep 7200
       - flutter --version
