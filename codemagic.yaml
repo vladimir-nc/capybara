@@ -89,6 +89,10 @@ workflows:
     instance_type: linux
     environment:
       xcode: 12.4
+    cache:
+      cache_paths:
+        - $HOME/.config
+        - $FCI_BUILD_DIR/.metadata
     scripts:
       - flutter --version
 
