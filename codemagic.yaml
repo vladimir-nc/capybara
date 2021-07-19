@@ -41,7 +41,7 @@ workflows:
       - flutter_drive.log
 
   tests-only:
-    name: Tests only
+    name: Tests only with PR trigger
     max_build_duration: 10
     instance_type: linux
     triggering:
