@@ -51,6 +51,10 @@ workflows:
         - pattern: master
         - include: true
         - source: false
+    when:
+      changeset:
+        includes:
+          - 'android/'
     scripts:
       - flutter packages pub get
     artifacts:
