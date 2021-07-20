@@ -55,6 +55,8 @@ workflows:
       changeset:
         includes:
           - 'android/'
+        excludes:
+          - '**/.gitignore'
     scripts:
       - flutter packages pub get
     artifacts:
