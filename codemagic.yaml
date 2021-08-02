@@ -90,7 +90,7 @@ workflows:
   test-emulator-linux:
     name: Tests Android emulator under linux
     max_build_duration: 10
-    instance_type: linux_x2
+    instance_type: linux_test
     scripts:
       - |
         flutter emulators --launch emulator
