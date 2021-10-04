@@ -70,7 +70,7 @@ workflows:
     max_build_duration: 3
     cache:
       cache_paths:
-        - $HOME/.config
+        - $FLUTTER_ROOT/.pub-cache
     instance_type: mac_mini
     environment:
       xcode: 12.4
@@ -102,8 +102,7 @@ workflows:
     instance_type: linux
     cache:
       cache_paths:
-        - $HOME/.config
-        - $FCI_BUILD_DIR/.metadata
+        - $FLUTTER_ROOT/.pub-cache
     scripts:
       - flutter --version
 
