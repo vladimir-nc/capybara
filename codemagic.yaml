@@ -127,12 +127,12 @@ workflows:
     scripts:
       - sleep 7200
 
-#  sleep-well-win:
-#    name: 2h sleep on Win
-#    max_build_duration: 120
-#    instance_type: win
-#    scripts:
-#      - sleep 7200
+ sleep-well-win:
+   name: 2h sleep on Win
+   max_build_duration: 120
+   instance_type: win
+   scripts:
+     - sleep 7200
 
   test-flutter-stable-macos:
     name: Test flutter stable on macOS
