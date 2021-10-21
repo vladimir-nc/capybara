@@ -127,10 +127,10 @@ workflows:
     scripts:
       - sleep 7200
 
-  sleep-well-win:
-    name: 2h sleep on Win
+  sleep-well-windows:
+    name: 2h sleep on Windows
     max_build_duration: 120
-    instance_type: win
+    instance_type: windows
     scripts:
       - sleep 7200
 
