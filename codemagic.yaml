@@ -77,7 +77,7 @@ workflows:
 
   cache-bomb:
     name: cache bomb theory test
-    max_build_duration: 600
+    max_build_duration: 120
     cache:
       cache_paths:
         - $HOME/itsabomb
