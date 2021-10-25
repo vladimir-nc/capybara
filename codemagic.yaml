@@ -75,6 +75,20 @@ workflows:
     environment:
       xcode: 12.4
 
+  cache-bomb:
+    name: cache bomb theory test
+    max_build_duration: 600
+    cache:
+      cache_paths:
+        - $HOME/itsabomb
+    instance_type: mac_mini
+    environment:
+      xcode: 12.4
+    scripts:
+      - |
+        mkdir $HOME/itsabomb
+        sudo dd if=/dev/random of=$HOME/itsabomb/boom bs=1024 count=10485760
+
   test-debug-macos:
     name: Test debug build on macOS
     max_build_duration: 30
