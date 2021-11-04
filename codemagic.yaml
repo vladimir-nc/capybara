@@ -175,3 +175,12 @@ workflows:
       flutter: 1.22.6
     scripts:
       - flutter --version
+
+  ndk-test:
+    name: Test custom NDK version
+    instance_type: mac_pro
+    environment:
+      xcode: 11
+      ndk: r22b
+    scripts:
+      - echo "Build"
