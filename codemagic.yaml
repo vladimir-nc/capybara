@@ -180,7 +180,7 @@ workflows:
     name: Test custom NDK version
     instance_type: mac_pro
     environment:
-      xcode: 12.5
+      xcode: 13
       ndk: r22b
     scripts:
       - echo "Build"
