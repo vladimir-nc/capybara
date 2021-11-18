@@ -136,6 +136,9 @@ workflows:
 
   sleep-well-linux:
     name: 2h sleep on Linux
+    environment:
+      groups:
+        - test
     max_build_duration: 120
     instance_type: linux
     scripts:
