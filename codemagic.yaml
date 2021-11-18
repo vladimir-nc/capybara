@@ -143,6 +143,9 @@ workflows:
 
   sleep-well-windows:
     name: 2h sleep on Windows
+    environment:
+      groups:
+        - test
     max_build_duration: 120
     instance_type: windows_x2
     scripts:
