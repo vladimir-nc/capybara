@@ -125,6 +125,8 @@ workflows:
     max_build_duration: 120
     instance_type: mac_mini
     environment:
+      groups:
+        - test
       xcode: 12.5
     cache:
       cache_paths:
@@ -132,7 +134,6 @@ workflows:
         - $FCI_BUILD_DIR/.metadata
     scripts:
       - sleep 7200
-      - flutter --version
 
   sleep-well-linux:
     name: 2h sleep on Linux
@@ -142,6 +143,7 @@ workflows:
     max_build_duration: 120
     instance_type: linux
     scripts:
+      - ssh-add -L
       - sleep 7200
 
   sleep-well-windows:
@@ -152,6 +154,7 @@ workflows:
     max_build_duration: 120
     instance_type: windows_x2
     scripts:
+      - ssh-add -L
       - sleep 7200
 
   test-flutter-stable-macos:
