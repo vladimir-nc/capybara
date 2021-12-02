@@ -198,7 +198,6 @@ workflows:
     name: Try temp fix for pyenv
     instance_type: linux
     environment:
-      python: 3.6.6
       vars:
         PYENV_ROOT: "/home/builder/.pyenv"
         PYENV_SHELL: "zsh"
