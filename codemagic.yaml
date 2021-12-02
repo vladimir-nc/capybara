@@ -204,7 +204,7 @@ workflows:
     scripts:
       - name: Try py3.6 venv
         script: |
-          export PATH=/home/builder/.pyenv/bin:$PATH
+          export PYENV_ROOT=/home/builder/.pyenv PYENV_SHELL=zsh PATH=/home/builder/.pyenv/bin:$PATH
           pyenv install 3.6.12
           pyenv local 3.6.12
           pyenv exec python -m venv venv
