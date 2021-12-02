@@ -193,3 +193,21 @@ workflows:
       ndk: r22b
     scripts:
       - echo "Build"
+
+  pyenv-test:
+    name: Try temp fix for pyenv
+    instance_type: linux
+    environment:
+      python: 3.6.6
+      vars:
+        PYENV_ROOT: "/home/builder/.pyenv"
+        PYENV_SHELL: "zsh"
+    scripts:
+      - name: Try py3.6 venv
+        script: |
+          export PATH=/home/builder/.pyenv/bin:$PATH
+          pyenv install 3.6.15
+          pyenv local 3.6.6
+          pyenv exec python -m venv venv
+          source venv/bin/activate
+          python -V
