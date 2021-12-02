@@ -205,8 +205,8 @@ workflows:
       - name: Try py3.6 venv
         script: |
           export PATH=/home/builder/.pyenv/bin:$PATH
-          pyenv install 3.6
-          pyenv local 3.6
+          pyenv install 3.6.12
+          pyenv local 3.6.12
           pyenv exec python -m venv venv
           source venv/bin/activate
           python -V
