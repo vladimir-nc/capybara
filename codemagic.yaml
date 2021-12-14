@@ -178,10 +178,20 @@ workflows:
   test-flutter-1.22.6-macos:
     name: Test flutter 1.22.6 on macOS
     max_build_duration: 3
-    # instance_type: mac_mini
+    instance_type: mac_mini
     environment:
-      xcode: 12.4
+      xcode: 13.2
       flutter: 1.22.6
+    scripts:
+      - flutter --version
+
+  test-flutter-master-macos:
+    name: Test flutter master on macOS
+    max_build_duration: 3
+    instance_type: mac_mini
+    environment:
+      xcode: 13.2
+      flutter: master
     scripts:
       - flutter --version
 
