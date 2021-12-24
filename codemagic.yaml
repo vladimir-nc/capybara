@@ -70,10 +70,24 @@ workflows:
     max_build_duration: 3
     cache:
       cache_paths:
-        - $HOME/.config
+        - $FLUTTER_ROOT/.pub-cache
     instance_type: mac_mini
     environment:
       xcode: 12.4
+
+  cache-bomb:
+    name: cache bomb theory test
+    max_build_duration: 120
+    cache:
+      cache_paths:
+        - $HOME/itsabomb
+    instance_type: mac_mini
+    environment:
+      xcode: 12.4
+    scripts:
+      - |
+        mkdir $HOME/itsabomb
+        sudo dd if=/dev/random of=$HOME/itsabomb/boom bs=1024 count=10485760
 
   test-debug-macos:
     name: Test debug build on macOS
@@ -90,7 +104,6 @@ workflows:
   test-emulator-linux:
     name: Tests Android emulator under linux
     max_build_duration: 10
-    instance_type: linux_x2
     scripts:
       - |
         flutter emulators --launch emulator
@@ -103,8 +116,7 @@ workflows:
     instance_type: linux
     cache:
       cache_paths:
-        - $HOME/.config
-        - $FCI_BUILD_DIR/.metadata
+        - $FLUTTER_ROOT/.pub-cache
     scripts:
       - flutter --version
 
@@ -113,6 +125,8 @@ workflows:
     max_build_duration: 120
     instance_type: mac_mini
     environment:
+      groups:
+        - test
       xcode: 12.5
     cache:
       cache_paths:
@@ -120,14 +134,35 @@ workflows:
         - $FCI_BUILD_DIR/.metadata
     scripts:
       - sleep 7200
-      - flutter --version
+
+  sleep-well-linux:
+    name: 2h sleep on Linux
+    environment:
+      groups:
+        - test
+    max_build_duration: 120
+    instance_type: linux
+    scripts:
+      - ssh-add -L
+      - sleep 7200
+
+  sleep-well-windows:
+    name: 2h sleep on Windows
+    environment:
+      groups:
+        - test
+    max_build_duration: 120
+    instance_type: windows_x2
+    scripts:
+      - ssh-add -L
+      - sleep 7200
 
   test-flutter-stable-macos:
     name: Test flutter stable on macOS
     max_build_duration: 30
     instance_type: mac_mini
     environment:
-      xcode: 12.4
+      xcode: latest
     scripts:
       - flutter --version
 
@@ -145,7 +180,43 @@ workflows:
     max_build_duration: 3
     instance_type: mac_mini
     environment:
-      xcode: 12.4
+      xcode: 13.2
       flutter: 1.22.6
     scripts:
       - flutter --version
+
+  test-flutter-master-macos:
+    name: Test flutter master on macOS
+    max_build_duration: 3
+    instance_type: mac_mini
+    environment:
+      xcode: 13.2
+      flutter: master
+    scripts:
+      - flutter --version
+
+  ndk-test:
+    name: Test custom NDK version
+    instance_type: mac_pro
+    environment:
+      xcode: edge
+      ndk: r22b
+    scripts:
+      - echo "Build"
+
+  pyenv-test:
+    name: Try temp fix for pyenv
+    instance_type: linux
+    environment:
+      vars:
+        PYENV_ROOT: "/home/builder/.pyenv"
+        PYENV_SHELL: "zsh"
+    scripts:
+      - name: Try py3.6 venv
+        script: |
+          export PYENV_ROOT=/home/builder/.pyenv PYENV_SHELL=zsh PATH=/home/builder/.pyenv/bin:$PATH
+          pyenv install 3.6.12
+          pyenv local 3.6.12
+          pyenv exec python -m venv venv
+          source venv/bin/activate
+          python -V
